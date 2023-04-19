@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "obase=8; $BINARY"|bc
