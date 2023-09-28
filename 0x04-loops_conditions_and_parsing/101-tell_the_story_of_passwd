@@ -6,7 +6,7 @@ while IFS=: read -r username _ userid groupid _ homedir shell _
 do
 
     if [[ -n "$username" && -n "$groupid" && -n "$homedir" && -n "$shell" && -n "$userid" ]]; then
-    echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell. ${userid}'s place is protected by the passcode x, more info about the user here: $username"
+    echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell. $userid's place is protected by the passcode x, more info about the user here: $username"
 fi
 done </etc/passwd
 
