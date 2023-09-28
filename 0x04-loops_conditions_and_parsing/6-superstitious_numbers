@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#using while loop 4-if_9_say_hi
+number=1
+while [ $number -lt 21 ]
+do
+    echo $number
+    if [ $number -eq 4 ]; then
+        echo "bad luck from China"
+    elif [ $number -eq 9 ]; then
+     echo "bad luck from Japan"
+    elif [ $number -eq 17 ]; then
+     echo "bad luck from Italy"
+        fi
+    number=$(( number+1 ))
+done
