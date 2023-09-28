@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#using while loop 4-if_9_say_hi
+number=0
+while [ $number -lt 10 ]
+do
+    echo "Best School"
+    if [ $number -eq 8 ]; then
+        echo "Hi"
+        fi
+    number=$(( number+1 ))
+done
