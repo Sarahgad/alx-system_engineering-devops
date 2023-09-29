@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 #displays To infinity and beyond indefinitely.
-cleanup(){
-    echo"I am invincible!!!"
-}
-trap cleanup SIGTERM
+
+trap "echo I am invincible!!!" SIGTERM
 while true; do
 echo "To infinity and beyond"
 sleep 2
