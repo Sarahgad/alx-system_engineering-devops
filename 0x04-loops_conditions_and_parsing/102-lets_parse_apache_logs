@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#using while loop
+
+file_name="apache-access.log"
+cat $file_name | awk '{print $1, $9}' 
