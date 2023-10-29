@@ -1,0 +1,36 @@
+https://imgur.com/a/VTDu1yL
+
+why we add load balancer?
+-Load balancer will distribute the traffic to group of servers to reduce the amount of load on an individual
+server , that's inturn increase the reliability, efficiency and availability of the application or website.
+
+-adding heart monitor enables us to check the health of the server.
+
+What distribution algorithm your load balancer is configured with and how it works?
+the distribution algorithm used is Weighted Round Robin or Ratio algorithm .
+the number of connections that each server receives over time is proportionate to a ratio weight defined for each server.
+
+Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both.
+our load-balancer enabling an Active-Active setup.
+ Active-Active distributes traffic across multiple load balancers,all of which actively handle requests simultaneously
+ Maximizes system availability and scalability. 
+ while Active-Passive has one active load balancer and passive backups.
+ that's focuses on redundancy and failover with one active and others in standby.
+
+How a database Primary-Replica (Master-Slave) cluster works?
+this is a configuration where you have one primary database server and one or more replica database servers
+the first on called Master and responsible for all write operations, such as INSERT, UPDATE, and DELETE queries
+, and the seconed one is responsible for read operations, such as SELECT queries
+Replication in a database cluster works by copying data changes from the primary server to replica servers, 
+ensuring all have the same data.
+This improves performance, load balancing, and provides data redundancy for high availability.
+
+What is the difference between the Primary node and the Replica node in regard to the application?
+the primary node hosts the Master data-base and responsible for is responsible for handling write requests
+ensuring data consistency, and maintaining the most up-to-date data.
+the Replica node serves as a backup and can help distribute read queries to reduce the load on the primary node.
+
+-there will be SPOF because we use one load balancer . if it fails it causes the failure of the system.
+-firewall helps protect a website from malicious attacks by blocking incoming traffic that violates the security rules.
+https helps to protect the communication from hackers. abscence of them will put the system under attacks and hacking.
+-mointors are so important to measure the performance of the system and helps you to control the system. 
