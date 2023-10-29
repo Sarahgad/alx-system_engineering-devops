@@ -1,0 +1,5 @@
+https://imgur.com/VqcZweH
+
+I used “microservices” architecture, allows each component to be developed and scaled independently, which can improve the overall performance and reliability of the application.
+
+In a typical setup, a web server handles incoming requests from users and serves static content such as HTML, CSS, and JavaScript files. An application server processes dynamic requests and performs tasks such as running business logic, accessing a database, or calling external APIs. A database server stores and manages data for the application.
