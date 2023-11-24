@@ -1,5 +1,5 @@
 #create a file in /tmp.
-file { 'school':
+file { '/tmp/school':
 path    => '/tmp/school',
 owner   => 'sarahgad',
 group   => 'wheel',
