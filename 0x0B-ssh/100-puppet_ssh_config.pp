@@ -1,9 +1,13 @@
-# configure_ssh.pp
+file_line { 'Turn off passwd auth':
+  ensure  => present,
+  path    => '/etc/ssh/ssh_config',
+  line    => '    PasswordAuthentication no',
+  replace => true,
+}
 
-augeas { 'ssh_identity':
-  context => '~/.ssh/school', # Replace with the actual path
-  changes => [
-    'set Host[1]/IdentityFile[1] ~/.ssh/school',
-    'set Host[1]/PasswordAuthentication no',
-  ],
+file_line { 'Delare identity file':
+  ensure  => present,
+  path    => '/etc/ssh/ssh_config',
+  line    => '     IdentityFile ~/.ssh/school',
+  replace => true,
 }
