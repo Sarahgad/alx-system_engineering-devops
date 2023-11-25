@@ -1,16 +1,9 @@
-#enshure file config
-mod ('puppetlabs-stdlib', '4.13.0')
+# configure_ssh.pp
 
-file_line { 'Turn off passwd auth':
-  ensure  => present,
-  path    => '/etc/ssh/ssh_config',
-  line    => '    PasswordAuthentication no',
-  replace => true,
-}
-
-file_line { 'Delare identity file':
-  ensure  => present,
-  path    => '/etc/ssh/ssh_config',
-  line    => '     IdentityFile ~/.ssh/school',
-  replace => true,
+augeas { 'ssh_identity':
+  context => '/etc/ssh/ssh_config', # Replace with the actual path
+  changes => [
+    'set Host[1]/IdentityFile[1] ~/.ssh/school',
+    'set Host[1]/PasswordAuthentication no',
+  ],
 }
