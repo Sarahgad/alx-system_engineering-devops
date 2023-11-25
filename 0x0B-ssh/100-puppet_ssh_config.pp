@@ -3,14 +3,14 @@ include stdlib
 
 file_line {'Authentication':
   enshure =>  'present',
-  path    =>  '~/.ssh/config',
+  path    =>  '/etc/ssh/ssh_config',
   line    =>  ' PubkeyAuthentication yes',
   replace =>  true
 }
 
 file_line { 'PasswordAuthentication':
   enshure =>  'present',
-  path    =>  '~/.ssh/config',
+  path    =>  '/etc/ssh/ssh_config',
   line    =>  ' PasswordAuthentication no',
   replace =>  true
 
