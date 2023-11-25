@@ -1,0 +1,6 @@
+#first config i will do
+Host *
+	PubkeyAuthentication yes
+	PasswordAuthentication no
+	IdentityFile ~/.ssh/school
+
