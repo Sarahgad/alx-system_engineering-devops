@@ -1,12 +1,14 @@
 #enshure file config
 file_line {'Authentication':
+  enshure =>  'absent',
   path    =>  '~/.ssh/config',
   line    =>  ' PubkeyAuthentication yes',
   match   =>  ' PubkeyAuthentication yes',
-  replace => 'true'
+  replace =>  'true'
 }
 
 file_line { 'PasswordAuthentication':
+  enshure =>  'absent',
   path    =>  '~/.ssh/config',
   line    =>  ' PasswordAuthentication no',
   match   =>  ' PasswordAuthentication no',
@@ -15,6 +17,7 @@ file_line { 'PasswordAuthentication':
 }
 
 file_line {'IdentityFile':
+  enshure =>  'absent',
   path    => '~/.ssh/config',
   line    => ' IdentityFile ~/.ssh/school',
   match   => ' IdentityFile ~/.ssh/school',
