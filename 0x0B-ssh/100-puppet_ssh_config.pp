@@ -1,4 +1,6 @@
 #enshure file config
+include stdlib
+
 file_line {'Authentication':
   enshure =>  'absent',
   path    =>  '~/.ssh/config',
