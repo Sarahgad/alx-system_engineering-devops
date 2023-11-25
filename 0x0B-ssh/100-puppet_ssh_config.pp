@@ -1,13 +1,16 @@
 #enshure file config
-file_line { 'PasswordAuthentication':
-  path  =>  '/etc/ssh/ssh_config',
-  line  =>  ' PasswordAuthentication',
-  match => '^    PasswordAuthentication',
+mod ('puppetlabs-stdlib', '4.13.0')
 
+file_line { 'Turn off passwd auth':
+  ensure  => present,
+  path    => '/etc/ssh/ssh_config',
+  line    => '    PasswordAuthentication no',
+  replace => true,
 }
 
-file_line {'IdentityFile':
-  path  => '~/.ssh/config',
-  line  => '  IdentityFile',
-  match => '^    IdentityFile',
+file_line { 'Delare identity file':
+  ensure  => present,
+  path    => '/etc/ssh/ssh_config',
+  line    => '     IdentityFile ~/.ssh/school',
+  replace => true,
 }
