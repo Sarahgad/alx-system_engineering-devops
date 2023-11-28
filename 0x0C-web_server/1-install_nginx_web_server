@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#  transfers a file from our client to a server
+sudo nginx -s reload
