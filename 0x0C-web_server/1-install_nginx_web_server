@@ -2,4 +2,21 @@
 #  transfers a file from our client to a server
 sudo apt-get -y update
 sudo apt-get -y install
+sudo nginx
+sudo echo "http {
+    # ... other configurations ...
+
+    server {
+        listen 80;
+        server_name localhost;
+
+        location / {
+            root /home/ubuntu/mysite;
+            index index.html;
+        }
+    }
+
+    # ... other configurations ...
+}" | sudo vi /etc/nginx/nginx.config
+
 sudo nginx -s reload
