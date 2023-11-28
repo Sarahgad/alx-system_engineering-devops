@@ -25,7 +25,7 @@ echo "server{
       internal;
    }
 }" > default
-sudo mv -f default /etc/nginx/sites-available/default
+sudo cp -f default /etc/nginx/sites-available/default
 
 # Add a location block with the rewrite directive to the default Nginx configuration
 
