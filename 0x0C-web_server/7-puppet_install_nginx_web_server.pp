@@ -6,7 +6,7 @@ provider => 'apt-get'
 #html file
 file {'hello world':
 path    => 'root/var/www/html/index.html',
-user    => 'root',
+user    => 'ubuntu',
 mood    => '0644',
 content => 'Hello World!',
 }
