@@ -2,21 +2,11 @@
 #  transfers a file from our client to a server
 sudo apt-get -y update
 sudo apt-get -y install
-sudo nginx
-sudo echo "http {
-    # ... other configurations ...
-
-    server {
-        listen 80;
-        server_name localhost;
-
-        location / {
-            root /home/ubuntu/mysite;
-            index index.html;
-        }
-    }
-
-    # ... other configurations ...
-}" | sudo vi /etc/nginx/nginx.config
-
-sudo nginx -s reload
+sudo service nginx start
+sudo ufw allow 'Nginx HTTP'
+sudo mkdir -p /var/www/example.com/html
+sudo mkdir -p /var/www/test.com/html
+sudo chmod -R 755 /var/www
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html.bckp > /dev/null
+sudo service nginx restart
