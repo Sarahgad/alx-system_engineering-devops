@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #  transfers a file from our client to a server
-sudo apt-get -y update
-sudo apt-get -y install nginx
+sudo apt-get update -y
+sudo apt-get install nginx -y
 sudo service nginx start
 sudo ufw allow 'Nginx HTTP'
 sudo chown -R "$USER":"$USER" /var/www/html
