@@ -7,7 +7,7 @@ provider => 'apt-get'
 file {'hello world':
 path    => 'root/var/www/html/index.html',
 user    => 'root',
-mood    => '0755',
+mood    => '0644',
 content => 'Hello World!',
 }
 
