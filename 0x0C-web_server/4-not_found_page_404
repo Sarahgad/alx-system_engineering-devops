@@ -3,19 +3,16 @@
 sudo apt-get update -y
 sudo apt-get install nginx -y
 sudo service nginx start
-sudo mkdir -p /var/www/sarahgadelkareem.tech
-sudo chown -R "$USER":"$USER" /var/www/sarahgadelkareem.tech
-sudo chmod -R 755 /var/www
 echo -e "Hello World!" > index.html
-sudo mv index.html /var/www/sarahgadelkareem.tech
+sudo mv index.html /var/www/html
 
 echo -e "Ceci n'est pas une page" > 404.html
-sudo mv 404.html /var/www/sarahgadelkareem.tech
+sudo mv 404.html /var/www/html
 echo "server{
        listen 80 default_server;
    listen [::]:80 default_server;
    
-   root /var/www/sarahgadelkareem.tech;
+   root /var/www/html;
    index index.html;
    location /redirect_me {
       return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
@@ -25,7 +22,7 @@ echo "server{
       internal;
    }
 }" > default
-sudo cp -f default /etc/nginx/sites-available/default
+sudo mv -f default /etc/nginx/sites-available/default
 
 # Add a location block with the rewrite directive to the default Nginx configuration
 
