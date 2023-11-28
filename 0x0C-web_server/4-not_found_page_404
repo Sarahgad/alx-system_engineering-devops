@@ -6,6 +6,10 @@ sudo service nginx start
 
 sudo chown -R "$USER":"$USER" /var/www/html
 sudo chmod -R 755 /var/www
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
+
+# Add a location block with the rewrite directive to the default Nginx configuration
+sudo sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-enabled/default
 echo -e "Ceci n'est pas une page" | dd status=none of=/var/www/html/404.html
 
 # Add a location block with the rewrite directive to the default Nginx configuration
