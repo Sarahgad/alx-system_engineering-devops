@@ -1,21 +1,26 @@
 #install nginx
 package {'nginx':
-ensure   => 'present',
-provider => 'apt-get'
+  ensure   => 'present',
 }
-#html file
-file {'hello world':
-path    => 'root/var/www/html/index.html',
-user    => 'ubuntu',
-mood    => '0644',
-content => 'Hello World!',
+#install nginx
+exec {'install':
+  command  => 'sudo apt-get update -y; sudo apt-get install nginx -y',
+  provider => 'shell'
 }
-
+#creat file
+exec {'hello world':
+  command  => 'echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html',
+  provider => 'shell'
+}
 #config nginx
 exec {'redirect':
-require  => 'nginx',
-command  => 'sudo sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-enabled/default',
-provider => 'shell',
-
+  require  => 'nginx',
+  command  => 'sudo sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-enabled/default',
+  provider => 'shell',
 }
-#redirect me
+
+#run
+exec {'run':
+command  => 'sudo service nginx restart',
+provider => 'shell'
+}
