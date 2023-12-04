@@ -35,9 +35,9 @@ frontend http_front
 
 backend http_back
     balance roundrobin
-    server 408670-web-01 408670-web-01:80 check
-    server 408670-web-02 408670-web-02:80 check
+    server 408670-web-01 54.86.220.157:80 check
+    server 408670-web-02 100.26.212.86:80 check
 EOF
 
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
-sudo service haproxy restart
+sudo service haproxy start
