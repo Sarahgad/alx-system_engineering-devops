@@ -5,6 +5,7 @@ NGINX_CONF_FILE="/etc/nginx/sites-available/default"
 # Configure Nginx only if the custom configurations are not already present
     sudo apt-get update -y
     sudo apt-get install nginx -y
+    ufw allow 'Nginx HTTP'
     sudo service nginx start
     echo -e "install nginx done"
     echo -e "Hello World!" > index.html
