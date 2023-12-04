@@ -15,7 +15,6 @@ echo -e "set the redirect"
 sudo sed -i "/server_name _/a \
     error_page 404 /404.html;\n\
     location = /404.html {\n\
-        root /var/www/html;\n\
         internal;\n\
     }" /etc/nginx/sites-available/default
 echo -e "set the error 404 congif"
