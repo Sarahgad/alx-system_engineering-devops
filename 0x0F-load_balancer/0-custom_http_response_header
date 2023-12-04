@@ -10,8 +10,12 @@ echo -e "Ceci n'est pas une page" | dd status=none of=/var/www/html/404.html
 echo -e "writing 404 file"
 sudo sed -i "/server_name_/a location /redirect_me {rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4? permanent; }" /etc/nginx/sites-available/default
 echo -e "set the redirect"
-sudo sed -i "/server_name_/a  error_page 404 /404.html;
-   location = /404.html{ /var/www/html; internal;}" /etc/nginx/sites-available/default 
+sudo sed -i "/server_name_/a \
+    error_page 404 /404.html;\n\
+    location = /404.html {\n\
+        root /var/www/html;\n\
+        internal;\n\
+    }" /etc/nginx/sites-available/default
 echo -e "set the error 404 congif"
 
 sudo sed -i "/server_name_/a add header X-Served-By $HOSTNAME;"/etc/nginx/sites-available/default
