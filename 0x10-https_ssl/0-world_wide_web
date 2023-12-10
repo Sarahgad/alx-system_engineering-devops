@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Function to display information for a subdomain
+display_info()
+{
+local subdomain="$1"
+   destination=$(dig "$subdomain.$domain"  | grep -A1 ';; ANSWER SECTION:'| awk -F '\t' '{print $3}'| tail -1)
+   recordtype=$(dig "$subdomain.$domain"  | grep -A1 ';; ANSWER SECTION:'| awk -F '\t' '{print $2}'| tail -1)
+
+	echo "The subdomain "$subdomain" is a "$recordtype" record and points to "$destination""
+}
+
+domain="$1"
+subdomain="$2"
+
+if [ -n "$subdomain" ]; then
+    display_info "$subdomain"
+else
+    # Default subdomains to audit
+    default_subdomains=("www" "lb-01" "web-01" "web-02")
+
+    # Loop through default subdomains and display information
+    for default_subdomain in "${default_subdomains[@]}"; do
+        display_info "$default_subdomain"
+    done
+fi
