@@ -1,6 +1,6 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 # Function to display information for a subdomain
+
 display_info()
 {
 local subdomain="$1"
