@@ -1,0 +1,5 @@
+apt install ufw
+ufw enable
+ufw allow ssh port 22
+ufw allow http port 80
+ufw allow https port 443
