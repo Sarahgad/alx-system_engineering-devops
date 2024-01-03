@@ -33,8 +33,6 @@ if __name__ == '__main__':
             if task['completed'] == 1:
                 list_done.append(task['title'])
                 done += 1
-
-
     print(f"Employee {user['name']} is done with tasks({done}/20):")
 
     for task in list_done:
