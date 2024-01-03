@@ -17,11 +17,10 @@ if __name__ == '__main__':
     user = get(url + 'users/{}'.format(user_id)).json()
     username = user.get('username')
     todos = get(url + 'todos', params={"userId": user_id}).json()
-    task_dict = {user_id :[
+    task_dict = {user_id: [
         {"task": todo.get("title"),
-         "completed": todo.get("completed"), 
-         "username": username } for todo in todos]}
+         "completed": todo.get("completed"),
+         "username": username} for todo in todos]}
 
     with open(user_id + '.json', 'w', newline="") as file:
         writ = json.dump(task_dict, file)
-        
