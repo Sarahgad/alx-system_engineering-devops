@@ -18,7 +18,7 @@ if __name__ == '__main__':
     username = user.get('username')
     todos = get(url + 'todos', params={"userId": user_id}).json()
 
-    with open(user_id + '.cvs', 'w', newline="") as file:
+    with open(f"{user_id}" + '.cvs', 'w', newline="") as file:
         writ = csv.writer(file, quoting=csv.QUOTE_ALL)
         [writ.writerow(
             [user_id, username, t.get('completed'), t.get('title')]
