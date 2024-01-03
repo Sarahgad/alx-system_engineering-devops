@@ -6,9 +6,9 @@ about his/her TODO list progress.
 
 
 # 1) Import imp modules
-from sys import argv
-from requests import get
 import json
+from requests import get
+from sys import argv
 
 # 2) Fetching --> Get reques for api [Object response]
 response_user = get('https://jsonplaceholder.typicode.com/users')
