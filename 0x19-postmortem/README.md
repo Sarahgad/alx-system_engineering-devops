@@ -1,28 +1,30 @@
-# Issue Summary
+# Mastering Memory Management: A Journey Through Debugging Memory Leaks
 
-From 5:00 am to 9:00 pm PT, while we check our code in 'simple shell' project since the ALX checker will open, we discovered all checkers is fail though the code is work. After investigation we discovers there are memory leaks and that's highly consider in the checker. This issue affected 80% on our score. you have to fix the leaks to the code is pass.
+## Issue Summary
 
-# time line
+Between 5:00 am and 9:00 pm PT, during our code review for the 'simple shell' project, we encountered persistent failures in the ALX checker despite the code functioning correctly. Upon investigation, we identified memory leaks, which significantly impacted our score, resulting in an 80% reduction. Addressing these leaks was crucial for the code to pass.
 
-5:00 am the code doesn't pass
-5:10 am check the source code
-5:15 am found the leaks in code is some cases.
-6:00 am found unfreable allocate memory
-7:00 am each fix check the leaks
-9:00 all leaks fix the code is pass
+## Timeline
 
-# Root Cause
+5:00 am: Code fails checker.
+5:10 am: Review source code.
+5:15 am: Identify memory leaks in some cases.
+6:00 am: Discover unfreeable allocated memory.
+7:00 am: Address leaks with each fix.
+9:00 am: All leaks fixed; code passes.
 
-our focus during the project how it work. and it's not enough because the excusions consume alot of stack memory so must be use the heap by allocate the memory for variable and memory. if you do that you have to get focuse when and where free the heap. and that's we have done when review our code.
+## Root Cause
 
-# Resolution and recovery
+Our focus during the project was primarily on functionality, neglecting memory management considerations. Excessive stack memory consumption due to uncontrolled allocations became evident. Transitioning to heap memory allocation was necessary to manage memory more efficiently. Thus, we conducted a thorough review of our code to ensure proper memory deallocation.
 
-each condition that handle edge case or normal case, don't forget free the heap before exiting.
+## Resolution and Recovery
 
-track the variable untile do it job then free it gentlly.
+- Ensure heap memory is freed before exiting functions, especially in edge cases.
+- Track variables until their completion and free memory accordingly.
+- Conduct comprehensive memory leak tests across various scenarios.
 
-each scale in you code you should test your leaks on the memory in different cass.
+## Corrective and Preventative Measures
 
-# Corrective and Preventative Measures
+Utilize tools like Valgrind to detect memory leaks during development.
 
-use valgrind to check the leaks.
+Implementing these measures will not only address current issues but also prevent similar problems in future projects. Remember, effective memory management is essential for robust software performance and reliability.
